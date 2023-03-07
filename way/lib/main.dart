@@ -12,8 +12,12 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text("Car App"),
+        ),
         body: Center(
-          child: Text("Testando...."),
+          child: Text("Home..."),
         ),
       ),
     );

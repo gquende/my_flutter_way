@@ -5,7 +5,7 @@ class GetCarByColorUsecase {
   CarRepository _carRepository;
   GetCarByColorUsecase(this._carRepository);
 
-  CarEntity getCarByColor(String color) {
-    return _carRepository(color);
+  Future<CarEntity> getCarByColor(String color) async {
+    return await _carRepository(color);
   }
 }

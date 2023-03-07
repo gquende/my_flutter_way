@@ -1,8 +1,8 @@
 class CarEntity {
-  String name;
-  String color;
-  int qtdDoor;
-  double price;
+  String? name;
+  String? color;
+  int? qtdDoor;
+  double? price;
 
   CarEntity(
       {required this.name,
@@ -11,6 +11,6 @@ class CarEntity {
       required this.price});
 
   double getPrice() {
-    return this.qtdDoor * this.price;
+    return this.qtdDoor! * this.price!;
   }
 }
