@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:way/layers/data/datasource/datasource.dart';
 import 'package:way/layers/data/dto/car_dto.dart';
 import 'package:way/layers/domain/entities/car_entity.dart';
@@ -18,12 +19,16 @@ class CarLocalDataSource extends DataSource {
   };
 
   @override
-  Future<CarEntity> call(String cor) async {
+  Future<Either<Exception, CarEntity>> call(String cor) async {
     // TODO: implement call
-    if (cor.contains("white")) {
-      return CarDto.fromMap(json);
-    } else {
-      return CarDto.fromMap(jsonRed);
+    try {
+      if (cor.contains("white")) {
+        return Right(CarDto.fromMap(json));
+      } else {
+        return Right(CarDto.fromMap(jsonRed));
+      }
+    } catch (error) {
+      return Left(Exception("Error ao tentar buscar os dados..."));
     }
   }
 }

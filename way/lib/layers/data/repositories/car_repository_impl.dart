@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:way/layers/data/datasource/datasource.dart';
 import 'package:way/layers/data/datasource/local/car_local_datasource.dart';
 import 'package:way/layers/data/dto/car_dto.dart';
@@ -9,7 +10,7 @@ class CarRepositoryImpl implements CarRepository {
 
   CarRepositoryImpl(this._dataSource);
   @override
-  Future<CarEntity> call(String color) async {
+  Future<Either<Exception, CarEntity>> call(String color) async {
     return await _dataSource(color);
   }
 }
